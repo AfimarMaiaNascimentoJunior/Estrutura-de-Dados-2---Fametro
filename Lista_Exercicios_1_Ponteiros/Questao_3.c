@@ -3,7 +3,7 @@
 int main() {
     int var;
     int *p;
-    scanf("%d", &var)
+    scanf("%d", &var);
     p = &var;
     
     printf("Valor: %d\n", var);
@@ -12,4 +12,5 @@ int main() {
     printf("Valor ponteiro: %d\n", *p);
     return 0;
 }
+
 

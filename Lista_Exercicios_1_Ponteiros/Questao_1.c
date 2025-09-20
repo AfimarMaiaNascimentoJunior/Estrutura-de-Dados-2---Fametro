@@ -7,11 +7,9 @@ void trocar(int *a, int *b) {
 }
 
 int main() {
-    int x, y;
-    scanf("%d %d", &x, &y);
-    trocar(&x, &y);
-    printf("%d %d\n", x, y);
+    int a, b;
+    scanf("%d %d", &a, &b);
+    trocar(&a, &b);
+    printf("%d %d\n", a, b);
     return 0;
 }
-
-

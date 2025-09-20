@@ -1,4 +1,3 @@
-/* Calculadora básica: soma, subtração, multiplicação e divisão usando ponteiros */
 #include <stdio.h>
 
 void calculadora(float a, float b, float *soma, float *sub, float *mult, float *divisao) {
@@ -13,14 +12,13 @@ void calculadora(float a, float b, float *soma, float *sub, float *mult, float *
 
 int main() {
     float a, b;
-    if (scanf("%f %f", &a, &b) != 2) return 0;
+    scanf("%f %f", &a, &b);
+        
     float s, su, m, d;
+    
     calculadora(a, b, &s, &su, &m, &d);
-    printf("Soma: %.6g\nSubtracao: %.6g\nMultiplicacao: %.6g\n", s, su, m);
-    if (b == 0.0f) {
-        printf("Divisao: erro (divisao por zero)\n");
-    } else {
-        printf("Divisao: %.6g\n", d);
-    }
+    
+    printf("Soma: %.6g\nSubtracao: %.6g\nMultiplicacao: %.6g\nDivisao: %.6g\n", s, su, m,d);
     return 0;
 }
+

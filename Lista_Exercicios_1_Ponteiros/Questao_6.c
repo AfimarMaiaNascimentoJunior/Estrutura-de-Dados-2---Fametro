@@ -1,4 +1,3 @@
-/* Contagem de vogais e consoantes usando ponteiros */
 #include <stdio.h>
 #include <ctype.h>
 
@@ -22,8 +21,8 @@ void contarVogaisConsoantes(char *str, int *vogais, int *consoantes) {
 int main() {
     char s[100];
     if (fgets(s, sizeof(s), stdin) == NULL) return 0;
-    /* remover newline */
-    size_t i = 0;
+    
+    tamanho = 0;
     while (s[i] != '\0') {
         if (s[i] == '\n') { s[i] = '\0'; break; }
         i++;
@@ -33,3 +32,4 @@ int main() {
     printf("Vogais: %d\nConsoantes: %d\n", vogais, consoantes);
     return 0;
 }
+

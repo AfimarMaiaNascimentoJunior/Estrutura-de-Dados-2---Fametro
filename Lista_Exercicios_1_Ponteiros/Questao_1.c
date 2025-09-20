@@ -8,9 +8,10 @@ void trocar(int *a, int *b) {
 
 int main() {
     int x, y;
-    scanf("%d %d", &x, &y)
+    scanf("%d %d", &x, &y);
     trocar(&x, &y);
     printf("%d %d\n", x, y);
     return 0;
 }
+
 

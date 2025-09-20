@@ -13,7 +13,7 @@ int main() {
     char origem[100];
     char destino[100];
     if (fgets(origem, sizeof(origem), stdin) == NULL) return 0;
-    tamanho i = 0;
+    size_t i = 0;
     while (origem[i] != '\0') {
         if (origem[i] == '\n') { origem[i] = '\0'; break; }
         i++;
@@ -22,4 +22,5 @@ int main() {
     printf("%s\n", destino);
     return 0;
 }
+
 

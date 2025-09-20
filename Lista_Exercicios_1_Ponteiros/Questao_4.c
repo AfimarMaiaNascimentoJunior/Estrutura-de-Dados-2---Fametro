@@ -1,14 +1,14 @@
-/*Dobrar o valor usando ponteiro */
 #include <stdio.h>
 
-void dobrar(int *n) {
-    *n = (*n) * 2;
+void dobrar(int *num) {
+    *num = (*num) * 2;
 }
 
 int main() {
-    int x;
-    if (scanf("%d", &x) != 1) return 0;
-    dobrar(&x);
-    printf("%d\n", x);
+    int num;
+    scanf("%d", &num)
+    dobrar(&num);
+    printf("%d\n", num);
     return 0;
 }
+

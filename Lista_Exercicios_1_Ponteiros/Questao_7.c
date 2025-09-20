@@ -1,24 +1,23 @@
-/*Inverter string in-place usando ponteiros */
 #include <stdio.h>
 #include <string.h>
 
-void inverterString(char *str) {
-    if (str == NULL) return;
-    char *start = str;
-    char *end = str + strlen(str) - 1;
-    while (start < end) {
-        char tmp = *start;
-        *start = *end;
-        *end = tmp;
-        start++;
-        end--;
+void inverterString(char *palavra) {
+    if (palavra == NULL) return;
+    char *comeco = palavra;
+    char *fim = palavra + strlen(palavra) - 1;
+    while (comeco < fim) {
+        char aux = *comeco;
+        *comeco = *fim;
+        *fim = aux;
+        comeco++;
+        fim--;
     }
 }
 
 int main() {
-    char s[2048];
+    char s[100];
     if (fgets(s, sizeof(s), stdin) == NULL) return 0;
-    /* remover newline */
+    
     size_t i = 0;
     while (s[i] != '\0') {
         if (s[i] == '\n') { s[i] = '\0'; break; }
@@ -28,3 +27,4 @@ int main() {
     printf("%s\n", s);
     return 0;
 }
+

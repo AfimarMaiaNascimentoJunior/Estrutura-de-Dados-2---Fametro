@@ -22,7 +22,7 @@ int main() {
     char s[100];
     if (fgets(s, sizeof(s), stdin) == NULL) return 0;
     
-    tamanho = 0;
+    size_t i = 0;
     while (s[i] != '\0') {
         if (s[i] == '\n') { s[i] = '\0'; break; }
         i++;
@@ -32,4 +32,5 @@ int main() {
     printf("Vogais: %d\nConsoantes: %d\n", vogais, consoantes);
     return 0;
 }
+
 

@@ -9,7 +9,6 @@ typedef struct Produto {
     struct Produto *prox;
 } Produto;
 
-/* Assinaturas obrigatórias conforme enunciado */
 Produto* inserir_inicio(Produto *L, Produto p);
 Produto* inserir_ordenado_por_codigo(Produto *L, Produto p);
 Produto* remover_por_codigo(Produto *L, const char *codigo);
@@ -18,7 +17,6 @@ Produto* buscar(Produto *L, const char *codigo);
 void listar(Produto *L);
 Produto* limpar(Produto *L);
 
-/* Relatório extra */
 void relatorio(Produto *L);
 
 #endif

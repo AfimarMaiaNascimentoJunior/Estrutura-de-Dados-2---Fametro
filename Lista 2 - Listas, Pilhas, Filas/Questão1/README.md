@@ -1,4 +1,4 @@
-# Questão 1 — Lista Encadeada de Produtos (Versão Corrigida)
+# Questão 1 — Lista Encadeada de Produtos
 
 ## Arquivos
 - `produto.h`

@@ -16,3 +16,12 @@ START
 REL
 EXIT
 ```
+
+## Complexidade
+````
+Inicializar: O(1)
+Enfileirar: O(1)
+Desenfileirar: O(1)
+Vazia: O(1)
+Limpar: O(n)
+````

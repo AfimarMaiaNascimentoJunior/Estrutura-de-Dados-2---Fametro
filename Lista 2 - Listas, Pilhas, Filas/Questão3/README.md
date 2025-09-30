@@ -1,5 +1,5 @@
 
-# Questão 3 (versão reescrita) - Pilha de Processos
+# Questão 3 - Pilha de Processos
 
 ## Compilação
 ```

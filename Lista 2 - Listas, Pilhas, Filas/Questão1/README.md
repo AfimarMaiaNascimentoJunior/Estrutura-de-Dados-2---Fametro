@@ -1,5 +1,5 @@
 
-# Questão 1 (versão reescrita) - Lista de Estoque
+# Questão 1 - Lista de Estoque
 
 ## Como compilar
 ```
@@ -19,9 +19,11 @@ EXIT
 ```
 
 ## Complexidade
-- Inserção ordenada: O(n)
-- Exclusão: O(n)
-- Alterar quantidade: O(n)
-- Localizar: O(n)
-- Exibir: O(n)
-- Destruir: O(n)
+````
+Inserção ordenada: O(n)
+Exclusão: O(n)
+Alterar quantidade: O(n)
+Localizar: O(n)
+Exibir: O(n)
+Destruir: O(n)
+````

@@ -1,5 +1,5 @@
 
-# Questão 2 (versão reescrita) - Fila de Ingressos
+# Questão 2 - Fila de Ingressos
 
 ## Compilação
 ```

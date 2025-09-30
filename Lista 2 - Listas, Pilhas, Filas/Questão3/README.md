@@ -17,3 +17,12 @@ RET
 TRACE
 EXIT
 ```
+## Complexidade
+````
+Inicializar: O(1)
+Push: O(1)
+Pop: O(1)
+Topo/peek: O(1)
+Trace : O(n)
+Limpar: O(n)
+````

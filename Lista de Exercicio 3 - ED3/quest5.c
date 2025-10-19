@@ -1,16 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h> // Necessário para INT_MIN
+#include <limits.h>
 
 #define MAX 100
 
-// --- Definição da Estrutura de Pilha Estática ---
 typedef struct {
     int topo;
     int dados[MAX];
 } Pilha;
 
-// --- Funções básicas da Pilha ---
 void criaPilha(Pilha *p) {
     p->topo = -1;
 }
@@ -23,8 +21,6 @@ int pilhaCheia(Pilha *p) {
     return p->topo == MAX - 1;
 }
 
-// CORREÇÃO: Função interna (silenciosa) para empilhar
-// Retorna 1 para sucesso, 0 para falha (pilha cheia)
 int push_interno(Pilha *p, int valor) {
     if (pilhaCheia(p)) {
         return 0; // Falha
@@ -35,7 +31,6 @@ int push_interno(Pilha *p, int valor) {
     }
 }
 
-// Opção 1: Cadastrar (agora usa a interna e imprime a mensagem)
 void push(Pilha *p, int valor) {
     if (push_interno(p, valor)) {
         printf("Numero %d cadastrado com sucesso.\n", valor);
@@ -44,7 +39,6 @@ void push(Pilha *p, int valor) {
     }
 }
 
-// Função 'pop' (retorna INT_MIN se a pilha estiver vazia)
 int pop(Pilha *p) {
     if (pilhaVazia(p)) {
         return INT_MIN; 
@@ -55,7 +49,6 @@ int pop(Pilha *p) {
     }
 }
 
-// Opção 2: Mostrar Pares (CORRIGIDA para usar push_interno)
 void mostrarPares(Pilha *p) {
     if (pilhaVazia(p)) {
         printf("Mensagem: Pilha vazia! Nao ha numeros para mostrar.\n");
@@ -68,14 +61,13 @@ void mostrarPares(Pilha *p) {
 
     printf("Numeros pares na pilha (do topo para a base):\n");
     
-    // Esvazia p, verifica e guarda em aux
     while (!pilhaVazia(p)) {
         int valor = pop(p);
         if (valor % 2 == 0) {
-            printf("%d\n", valor); // <--- Mostra o par (correto)
+            printf("%d\n", valor); 
             encontrouPar = 1;
         }
-        push_interno(&aux, valor); // <--- USA A FUNÇÃO SILENCIOSA
+        push_interno(&aux, valor); 
     }
 
     if (!encontrouPar) {
@@ -84,7 +76,7 @@ void mostrarPares(Pilha *p) {
 
     // Restaura p
     while (!pilhaVazia(&aux)) {
-        push_interno(p, pop(&aux)); // <--- USA A FUNÇÃO SILENCIOSA
+        push_interno(p, pop(&aux)); 
     }
 }
 
@@ -134,3 +126,4 @@ int main() {
 
     return 0;
 }
+

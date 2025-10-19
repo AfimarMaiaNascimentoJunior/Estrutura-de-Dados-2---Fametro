@@ -4,13 +4,12 @@
 
 #define MAX 50
 
-// --- Definição da Estrutura de Pilha Estática ---
 typedef struct {
     int topo;
     int dados[MAX];
 } Pilha;
 
-// Funções básicas da Pilha
+// FunÃ§Ãµes bÃ¡sicas da Pilha
 void criaPilha(Pilha *p) {
     p->topo = -1;
 }
@@ -34,8 +33,8 @@ void push(Pilha *p, int valor) {
 
 int pop(Pilha *p) {
     if (pilhaVazia(p)) {
-        printf("Erro: Pilha vazia!\n");
-        return -1; // Valor de erro
+        printf("Pilha vazia!\n");
+        return -1;
     } else {
         int valor = p->dados[p->topo];
         p->topo--;
@@ -47,9 +46,6 @@ int tamanhoPilha(Pilha *p) {
     return p->topo + 1;
 }
 
-// --- Funções do Exercício 1 ---
-
-// [cite: 4, 5]
 void saoIguais(Pilha *p1, Pilha *p2) {
     if (tamanhoPilha(p1) != tamanhoPilha(p2)) {
         printf("As pilhas nao sao iguais.\n");
@@ -130,7 +126,7 @@ void estatisticasPilha(Pilha *p) {
 void transfereP1paraP2(Pilha *p1, Pilha *p2) {
     Pilha aux;
     criaPilha(&aux);
-    criaPilha(p2); // Limpa P2 para a cópia
+    criaPilha(p2); // Limpa P2
 
     // Esvazia P1 e guarda em Aux (invertendo a ordem)
     while (!pilhaVazia(p1)) {
@@ -186,7 +182,6 @@ int contaPares(Pilha *p) {
     return pares;
 }
 
-// Função auxiliar para preencher as pilhas com inputs
 void preencherPilha(Pilha *p, char nomePilha) {
     int n, valor;
     printf("Quantos elementos deseja inserir na Pilha %c? ", nomePilha);
@@ -208,17 +203,17 @@ int main() {
     printf("\n--- Preenchendo Pilha P2 ---\n");
     preencherPilha(&P2, '2');
 
-    printf("\n--- 1. Teste de Igualdade ---\n"); // [cite: 4, 5]
+    printf("\n--- 1. Teste de Igualdade ---\n");
     saoIguais(&P1, &P2);
 
-    printf("\n--- 2. Estatisticas de P1 ---\n"); // 
+    printf("\n--- 2. Estatisticas de P1 ---\n"); 
     estatisticasPilha(&P1);
     
     printf("\n--- 3. Contagem Pares/Impares P1 ---\n");
-    printf("P1 tem %d elementos pares.\n", contaPares(&P1)); // 
-    printf("P1 tem %d elementos impares.\n", contaImpares(&P1)); // 
+    printf("P1 tem %d elementos pares.\n", contaPares(&P1)); 
+    printf("P1 tem %d elementos impares.\n", contaImpares(&P1)); 
 
-    printf("\n--- 4. Transferir P1 para P2 ---\n"); // 
+    printf("\n--- 4. Transferir P1 para P2 ---\n");
     transfereP1paraP2(&P1, &P2);
     
     printf("\n--- 5. Estatisticas de P2 (apos copia) ---\n");
@@ -226,3 +221,4 @@ int main() {
 
     return 0;
 }
+

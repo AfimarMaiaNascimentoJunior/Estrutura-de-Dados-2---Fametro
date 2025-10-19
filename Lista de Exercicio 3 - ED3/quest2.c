@@ -4,13 +4,11 @@
 
 #define MAX 50
 
-// --- Definição da Estrutura de Fila Estática (Circular) ---
 typedef struct {
     int inicio, fim, total;
     int dados[MAX];
 } Fila;
 
-// Funções básicas da Fila
 void criaFila(Fila *f) {
     f->inicio = 0;
     f->fim = 0;
@@ -51,9 +49,6 @@ int tamanhoFila(Fila *f) {
     return f->total;
 }
 
-// --- Funções do Exercício 2 ---
-
-// [cite: 4, 5]
 void saoIguais(Fila *f1, Fila *f2) {
     if (tamanhoFila(f1) != tamanhoFila(f2)) {
         printf("As filas nao sao iguais.\n");
@@ -70,7 +65,6 @@ void saoIguais(Fila *f1, Fila *f2) {
     criaFila(&aux2);
     int sao_iguais = 1;
 
-    // Esvazia F1 e F2, comparando e guardando em aux
     while (!filaVazia(f1)) {
         int v1 = dequeue(f1);
         int v2 = dequeue(f2);
@@ -125,16 +119,16 @@ void estatisticasFila(Fila *f) {
     }
 
     printf("Estatisticas da Fila:\n");
-    printf("Maior elemento: %d\n", maior); // 
-    printf("Menor elemento: %d\n", menor); // 
-    printf("Media aritmetica: %.2f\n", soma / contador); // 
+    printf("Maior elemento: %d\n", maior);  
+    printf("Menor elemento: %d\n", menor); 
+    printf("Media aritmetica: %.2f\n", soma / contador); 
 }
 
 // 
 void transfereF1paraF2(Fila *f1, Fila *f2) {
     Fila aux;
     criaFila(&aux);
-    criaFila(f2); // Limpa F2 para a cópia
+    criaFila(f2); // Limpa F2
 
     // Esvazia F1, guarda em Aux e copia para F2
     while (!filaVazia(f1)) {
@@ -190,7 +184,7 @@ int contaPares(Fila *f) {
     return pares;
 }
 
-// Função auxiliar para preencher as filas com inputs
+// FunÃ§Ã£o auxiliar para preencher as filas com inputs
 void preencherFila(Fila *f, char nomeFila) {
     int n, valor;
     printf("Quantos elementos deseja inserir na Fila %c? ", nomeFila);
@@ -212,17 +206,17 @@ int main() {
     printf("\n--- Preenchendo Fila F2 ---\n");
     preencherFila(&F2, '2');
 
-    printf("\n--- 1. Teste de Igualdade ---\n"); // [cite: 4, 5]
+    printf("\n--- 1. Teste de Igualdade ---\n");
     saoIguais(&F1, &F2);
 
-    printf("\n--- 2. Estatisticas de F1 ---\n"); // 
+    printf("\n--- 2. Estatisticas de F1 ---\n"); 
     estatisticasFila(&F1);
     
     printf("\n--- 3. Contagem Pares/Impares F1 ---\n");
-    printf("F1 tem %d elementos pares.\n", contaPares(&F1)); // 
-    printf("F1 tem %d elementos impares.\n", contaImpares(&F1)); // 
+    printf("F1 tem %d elementos pares.\n", contaPares(&F1)); 
+    printf("F1 tem %d elementos impares.\n", contaImpares(&F1)); 
 
-    printf("\n--- 4. Transferir F1 para F2 ---\n"); // 
+    printf("\n--- 4. Transferir F1 para F2 ---\n"); 
     transfereF1paraF2(&F1, &F2);
     
     printf("\n--- 5. Estatisticas de F2 (apos copia) ---\n");
@@ -230,3 +224,4 @@ int main() {
 
     return 0;
 }
+

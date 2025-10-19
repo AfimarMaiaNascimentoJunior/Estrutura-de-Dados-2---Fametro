@@ -1,26 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// --- Estruturas Dinâmicas ---
-
-// Nó (comum para pilha e fila)
 typedef struct No {
     int dado;
     struct No* prox;
 } No;
 
-// Pilha Dinâmica 
+// Pilha DinÃ¢mica 
 typedef struct {
     No* topo;
 } PilhaDinamica;
 
-// Fila Dinâmica 
 typedef struct {
     No* inicio;
     No* fim;
 } FilaDinamica;
 
-// --- Funções da Pilha Dinâmica ---
 void criaPilha(PilhaDinamica* p) {
     p->topo = NULL;
 }
@@ -52,7 +47,6 @@ int pop(PilhaDinamica* p) {
     return valor;
 }
 
-// --- Funções da Fila Dinâmica ---
 void criaFila(FilaDinamica* f) {
     f->inicio = NULL;
     f->fim = NULL;
@@ -89,42 +83,35 @@ int dequeue(FilaDinamica* f) {
     int valor = temp->dado;
     f->inicio = temp->prox;
     
-    if (f->inicio == NULL) { // Se a fila ficou vazia
+    if (f->inicio == NULL) { 
         f->fim = NULL;
     }
     free(temp);
     return valor;
 }
 
-// --- Funções Auxiliares de Verificação ---
-
-// Verifica se 'valor' existe na pilha (sem destruí-la)
 int existeNaPilha(PilhaDinamica* p, int valor) {
     No* atual = p->topo;
     while (atual != NULL) {
         if (atual->dado == valor) {
-            return 1; // Encontrou
+            return 1; 
         }
         atual = atual->prox;
     }
-    return 0; // Não encontrou
+    return 0;
 }
 
-// Verifica se 'valor' existe na fila (sem destruí-la)
 int existeNaFila(FilaDinamica* f, int valor) {
     No* atual = f->inicio;
     while (atual != NULL) {
         if (atual->dado == valor) {
-            return 1; // Encontrou
+            return 1;
         }
         atual = atual->prox;
     }
-    return 0; // Não encontrou
+    return 0; 
 }
 
-// --- Funções de Relatório ---
-
-// 
 void relatorioPilha(PilhaDinamica* p) {
     printf("Relatorio III: Numeros na Pilha\n");
     if (pilhaVazia(p)) {
@@ -139,7 +126,6 @@ void relatorioPilha(PilhaDinamica* p) {
     printf("\n");
 }
 
-// 
 void relatorioFila(FilaDinamica* f) {
     printf("Relatorio II: Numeros na Fila\n");
     if (filaVazia(f)) {
@@ -165,7 +151,6 @@ void relatorioComuns(PilhaDinamica* p, FilaDinamica* f) {
     No* atualPilha = p->topo;
     int encontrou = 0;
     while (atualPilha != NULL) {
-        // Verifica se o item da pilha existe na fila
         if (existeNaFila(f, atualPilha->dado)) {
             printf("%d ", atualPilha->dado);
             encontrou = 1;
@@ -187,14 +172,14 @@ int main() {
     criaFila(&f);
     int valor;
 
-    printf("--- Cadastro na Fila Dinamica ---\n"); // 
+    printf("--- Cadastro na Fila Dinamica ---\n"); 
     for (int i = 0; i < 5; i++) {
         printf("Digite o %d.o numero para a FILA: ", i + 1);
         scanf("%d", &valor);
         enqueue(&f, valor);
     }
 
-    printf("\n--- Cadastro na Pilha Dinamica ---\n"); // 
+    printf("\n--- Cadastro na Pilha Dinamica ---\n"); 
     for (int i = 0; i < 5; i++) {
         printf("Digite o %d.o numero para a PILHA: ", i + 1);
         scanf("%d", &valor);
@@ -202,15 +187,15 @@ int main() {
     }
 
     printf("\n\n--- RELATORIOS ---\n");
-    relatorioComuns(&p, &f);   // 
+    relatorioComuns(&p, &f);   
     printf("\n");
-    relatorioFila(&f);         // 
+    relatorioFila(&f);         
     printf("\n");
-    relatorioPilha(&p);        // 
+    relatorioPilha(&p);        
 
-    // Liberar memória (opcional, mas boa prática)
     while (!pilhaVazia(&p)) pop(&p);
     while (!filaVazia(&f)) dequeue(&f);
 
     return 0;
 }
+
